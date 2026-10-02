@@ -7,6 +7,11 @@ makes the scannet evaluation results worse (auc@10=40.8 => 39.5), which should b
 caused by tiny result fluctuation of few image pairs. This config set `BORDER_RM` to 0
 to be consistent with the results in our paper.
 """
+import sys
+from pathlib import Path
+
+LOFTR_ROOT = next(p for p in Path(__file__).resolve().parents if p.name == "LoFTR")
+sys.path.insert(0, str(LOFTR_ROOT))
 
 from src.config.default import _CN as cfg
 
